@@ -283,7 +283,7 @@ struct ProfileView: View {
             .navigationTitle("Profile")
             .sheet(isPresented: $editing) { EditProfileView() }
             .confirmationDialog("Delete all sessions?", isPresented: $confirm, titleVisibility: .visible) {
-                Button("Delete", role: .destructive) { conn.remove(ids: conn.records.map(\.id)) }
+                Button("Delete", role: .destructive) { RouteStore.deleteAll(); conn.remove(ids: conn.records.map(\.id)) }
             }
         }
     }
