@@ -1,3 +1,4 @@
+// iPhone target only (new file)
 import SwiftUI
 import Combine
 import CoreLocation
@@ -41,6 +42,7 @@ final class PhoneWorkout: NSObject, ObservableObject, CLLocationManagerDelegate 
     @Published var locationDenied = false
     @Published var watchMessage = ""
     @Published var summary: WorkoutRecord?
+    @Published var route: [RoutePoint] = []
 
     private let lm = CLLocationManager()
     private let health = HKHealthStore()
@@ -84,7 +86,7 @@ final class PhoneWorkout: NSObject, ObservableObject, CLLocationManagerDelegate 
     // MARK: Start on iPhone
     func start(_ s: PhoneSport) {
         sport = s; state = .running
-        elapsed = 0; distance = 0; calories = 0; summary = nil; locationDenied = false
+        elapsed = 0; distance = 0; calories = 0; summary = nil; locationDenied = false; route = []
         startDate = Date(); accumulated = 0; resumeDate = Date(); last = nil
         UIApplication.shared.isIdleTimerDisabled = true
         if s.gps { startLocation() }
@@ -118,6 +120,7 @@ final class PhoneWorkout: NSObject, ObservableObject, CLLocationManagerDelegate 
         guard state == .running else { last = nil; return }
         for l in locs {
             guard l.horizontalAccuracy >= 0, l.horizontalAccuracy < 30 else { continue }
+            route.append(RoutePoint(l))
             if let p = last {
                 let d = l.distance(from: p)
                 let dt = l.timestamp.timeIntervalSince(p.timestamp)
@@ -164,6 +167,7 @@ final class PhoneWorkout: NSObject, ObservableObject, CLLocationManagerDelegate 
         let rec = WorkoutRecord(type: sport?.id ?? "Other", date: end, duration: elapsed,
                                 calories: calories, avgHeartRate: 0, distance: distance)
         ConnectivityManager.shared.add(rec)
+        if route.count > 1 { RouteStore.save(route, id: rec.id) }
         saveToHealth(start: startDate, end: end)
         summary = rec
         state = .finished
@@ -317,6 +321,11 @@ struct WorkoutFlowView: View {
                 }
                 stat("\(Int(w.calories))", "kcal", Theme.move)
             }
+            if w.sport?.gps == true, w.route.count > 1 {
+                RouteMap(points: w.route, follow: true)
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            }
             if w.locationDenied {
                 Label("Location access is off, so distance can't be tracked. Turn it on in Settings > Privacy > Location Services.",
                       systemImage: "location.slash.fill")
@@ -351,6 +360,11 @@ struct WorkoutFlowView: View {
                     stat(hmsString(r.duration), "time", Theme.exercise)
                     if r.distance > 0 { stat(String(format: "%.2f", r.distance / 1000), "km", Theme.stand) }
                     stat("\(Int(r.calories))", "kcal", Theme.move)
+                }
+                if RouteStore.exists(r.id) {
+                    RouteMap(points: RouteStore.load(r.id))
+                        .frame(height: 220)
+                        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                 }
                 Text("Calories are estimated from your weight and the activity.")
                     .font(.footnote).foregroundStyle(.secondary)
