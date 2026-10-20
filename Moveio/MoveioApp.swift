@@ -5,11 +5,15 @@ import Charts
 @main
 struct MoveioApp: App {
     @StateObject var conn = ConnectivityManager.shared
+    @Environment(\.scenePhase) private var phase
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(conn)
                 .environment(\.locale, Locale(identifier: "en_US"))
+                .onAppear { WidgetSync.push(conn.records) }
+                .onChange(of: conn.records.count) { _, _ in WidgetSync.push(conn.records) }
+                .onChange(of: phase) { _, p in if p == .active { WidgetSync.push(conn.records) } }
         }
     }
 }
