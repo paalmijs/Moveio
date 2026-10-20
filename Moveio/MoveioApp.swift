@@ -194,26 +194,13 @@ struct HistoryView: View {
                     .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
                 }
                 ForEach(filtered) { r in
-                    let s = style(for: r.type)
-                    HStack(spacing: 12) {
-                        Image(systemName: s.icon).foregroundStyle(.white).font(.subheadline.weight(.semibold))
-                            .frame(width: 36, height: 36).background(s.color.gradient, in: Circle())
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(r.type).font(.headline)
-                            Text(r.date.formatted(date: .abbreviated, time: .shortened))
-                                .font(.caption).foregroundStyle(.secondary)
-                        }
-                        Spacer()
-                        VStack(alignment: .trailing, spacing: 2) {
-                            Text("\(Int(r.duration / 60)) min").font(.system(.headline, design: .rounded))
-                            if r.calories > 0 {
-                                Text("\(Int(r.calories)) kcal · \(Int(r.avgHeartRate)) bpm")
-                                    .font(.caption).foregroundStyle(.secondary)
-                            }
-                        }
-                    }
+                    NavigationLink { ActivityDetailView(record: r) } label: { HistoryRow(r: r) }
                 }
-                .onDelete { idx in conn.remove(ids: idx.map { filtered[$0].id }) }
+                .onDelete { idx in
+                    let ids = idx.map { filtered[$0].id }
+                    ids.forEach { RouteStore.delete($0) }
+                    conn.remove(ids: ids)
+                }
             }
             .overlay { if conn.records.isEmpty { Text("No sessions yet").foregroundStyle(.secondary) } }
             .navigationTitle("History")
