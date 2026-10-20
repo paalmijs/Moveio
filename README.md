@@ -39,25 +39,25 @@ A clean, minimal fitness app for **iPhone** and **Apple Watch**, built with Swif
 ## Project structure
 
 ```
-Moveio/                     iPhone app target
-  iPhone_App.swift          App entry, tabs, Summary and History
-  iPhone_Theme.swift        Colors, cards, activity rings
-  iPhone_Features.swift     Tools, water, body, plans, reminders
-  iPhone_More.swift         Health card, calendar, achievements, manual log
-  iPhone_Profile.swift      Onboarding, profile, menstrual cycle
-  iPhone_Social.swift       Animations, daily quests, friends
-  iPhone_Workout.swift      Workouts on iPhone, Watch handoff
-  iPhone_Routes.swift       Route maps, splits, GPX export
-  iPhone_WidgetSync.swift   Pushes data to the widget
-Moveio Watch App/           Apple Watch target
-  Watch_All.swift           App entry, workout manager, workout views
-  Watch_Extras.swift        Meditation, Pomodoro, stretching
-MoveioWidget/               Widget extension
-  MoveioStreakWidget.swift  Streak widget
-Shared (more than one target)
-  WorkoutRecord.swift       Workout model
-  ConnectivityManager.swift Watch <-> iPhone sync (WatchConnectivity)
-  WidgetShared.swift        Data shared with the widget
+Moveio/                       iPhone app target
+  MoveioApp.swift             App entry, tabs, Summary and History
+  MoveioTheme.swift           Colors, cards, activity rings
+  MoveioFeatures.swift        Tools, water, body, plans, reminders
+  MoveioMore.swift            Health card, calendar, achievements, manual log
+  MoveioProfiles.swift        Onboarding, profile, menstrual cycle
+  MoveioSocial.swift          Animations, daily quests, friends
+  MoveioWorkout.swift         Workouts on iPhone, Watch handoff
+  MoveioRoutes.swift          Route maps, splits, GPX export
+  MoveioWidgetSync.swift      Pushes data to the widget
+Moveio Watch App Watch App/   Apple Watch target
+  Moveio_Watch_AppApp.swift   App entry, workout manager, workout views
+  Watch_Extras.swift          Meditation, Pomodoro, stretching
+MoveioWidget/                 Widget extension
+  MoveioStreakWidget.swift    Streak widget
+Shared (one copy each, added to more than one target)
+  WorkoutRecord.swift         Workout model (iPhone + Watch)
+  ConnectivityManager.swift   Watch <-> iPhone sync (iPhone + Watch)
+  MoveioWidgetShared.swift    Data shared with the widget (iPhone + Widget)
 ```
 
 ## Getting started
