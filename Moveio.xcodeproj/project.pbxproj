@@ -11,6 +11,7 @@
 		18FBB9AF30880DE100891603 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBB9AE30880DE100891603 /* WidgetKit.framework */; };
 		18FBB9B130880DE100891603 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18FBB9B030880DE100891603 /* SwiftUI.framework */; };
 		18FBB9C230880DE300891603 /* MoveioWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 18FBB9AC30880DE100891603 /* MoveioWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		18FBB9D13088102000891603 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 18FBB9D03088101400891603 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		18FBB9AC30880DE100891603 /* MoveioWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoveioWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FBB9AE30880DE100891603 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		18FBB9B030880DE100891603 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		18FBB9D03088101400891603 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -231,6 +233,7 @@
 				18FBB9B230880DE100891603 /* MoveioWidget */,
 				18FBB9AD30880DE100891603 /* Frameworks */,
 				18AC1986304218B300890A42 /* Products */,
+				18FBB9D03088101400891603 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -490,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18FBB9D13088102000891603 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
