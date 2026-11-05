@@ -1,4 +1,3 @@
-// Moveio (iPhone app) target ONLY
 import Foundation
 import WidgetKit
 

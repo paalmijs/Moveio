@@ -1,4 +1,3 @@
-// iPhone target only (new file)
 import SwiftUI
 import Combine
 import CoreLocation

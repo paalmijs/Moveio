@@ -1,4 +1,3 @@
-// WATCH target only (Moveio Watch App Watch App)
 import SwiftUI
 import Combine
 import WatchKit

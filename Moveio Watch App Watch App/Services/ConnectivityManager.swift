@@ -1,4 +1,3 @@
-// Add to BOTH targets (iPhone + Watch)
 import Foundation
 import Combine
 import WatchConnectivity
