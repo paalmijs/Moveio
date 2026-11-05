@@ -14,7 +14,7 @@ enum WidgetSync {
         }
         let days = perDay.map { DayEntry(day: $0.key, minutes: $0.value) }.sorted { $0.day < $1.day }
         let goal = (UserDefaults.standard.object(forKey: "weeklyGoal") as? Int) ?? 150
-        SharedStore.save(WidgetSnapshot(days: days, weeklyGoal: goal, name: ProfileStore.shared.name))
+        guard SharedStore.save(WidgetSnapshot(days: days, weeklyGoal: goal, name: ProfileStore.shared.name)) else { return }
         WidgetCenter.shared.reloadAllTimelines()
     }
 }

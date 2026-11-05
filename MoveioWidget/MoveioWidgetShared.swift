@@ -6,12 +6,21 @@ enum SharedStore {
     static let group = "group.palmijs.Moveio"
     static let key = "widgetSnapshot"
 
-    static func save(_ s: WidgetSnapshot) {
-        guard let d = try? JSONEncoder().encode(s) else { return }
-        UserDefaults(suiteName: group)?.set(d, forKey: key)
+    private static var defaults: UserDefaults? {
+        guard FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: group) != nil else {
+            return nil
+        }
+        return UserDefaults(suiteName: group)
+    }
+
+    @discardableResult
+    static func save(_ s: WidgetSnapshot) -> Bool {
+        guard let defaults, let d = try? JSONEncoder().encode(s) else { return false }
+        defaults.set(d, forKey: key)
+        return true
     }
     static func load() -> WidgetSnapshot? {
-        guard let d = UserDefaults(suiteName: group)?.data(forKey: key) else { return nil }
+        guard let d = defaults?.data(forKey: key) else { return nil }
         return try? JSONDecoder().decode(WidgetSnapshot.self, from: d)
     }
 }

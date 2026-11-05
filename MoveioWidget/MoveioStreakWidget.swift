@@ -5,21 +5,21 @@ import SwiftUI
 // MARK: - Timeline
 struct StreakEntry: TimelineEntry {
     let date: Date
-    let snap: WidgetSnapshot
+    let snap: WidgetSnapshot?
 }
 
 struct StreakProvider: TimelineProvider {
     func placeholder(in context: Context) -> StreakEntry { StreakEntry(date: .now, snap: .sample) }
 
     func getSnapshot(in context: Context, completion: @escaping (StreakEntry) -> Void) {
-        completion(StreakEntry(date: .now, snap: context.isPreview ? .sample : (SharedStore.load() ?? .empty)))
+        completion(StreakEntry(date: .now, snap: context.isPreview ? .sample : SharedStore.load()))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<StreakEntry>) -> Void) {
-        let snap = SharedStore.load() ?? .empty
+        let snap = SharedStore.load()
         let now = Date()
         // A second entry right after midnight, so the flame turns gray if you haven't moved yet today.
-        let midnight = Calendar.current.startOfDay(for: now.addingTimeInterval(86_400)).addingTimeInterval(5)
+        let midnight = Calendar.current.dateInterval(of: .day, for: now)!.end.addingTimeInterval(5)
         let entries = [StreakEntry(date: now, snap: snap), StreakEntry(date: midnight, snap: snap)]
         completion(Timeline(entries: entries, policy: .after(midnight.addingTimeInterval(3600))))
     }
@@ -30,12 +30,23 @@ struct StreakWidgetView: View {
     @Environment(\.widgetFamily) private var family
     let entry: StreakEntry
 
-    private var snap: WidgetSnapshot { entry.snap }
+    private var snap: WidgetSnapshot { entry.snap ?? .empty }
     private var streak: Int { snap.streak(now: entry.date) }
     private var done: Bool { snap.doneToday(now: entry.date) }
     private let flameColors: [Color] = [Color(red: 1, green: 0.85, blue: 0.2), .orange, Color(red: 1, green: 0.25, blue: 0.2)]
 
     var body: some View {
+        if entry.snap == nil {
+            Label("Streak unavailable", systemImage: "flame")
+                .font(.caption)
+                .containerBackground(for: .widget) { background }
+        } else {
+            streakContent
+        }
+    }
+
+    @ViewBuilder
+    private var streakContent: some View {
         switch family {
         case .systemMedium: medium.containerBackground(for: .widget) { background }
         case .accessoryCircular: circular.containerBackground(for: .widget) { Color.clear }

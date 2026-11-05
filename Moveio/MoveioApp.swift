@@ -10,8 +10,7 @@ struct MoveioApp: App {
             RootView()
                 .environmentObject(conn)
                 .environment(\.locale, Locale(identifier: "en_US"))
-                .onAppear { WidgetSync.push(conn.records) }
-                .onChange(of: conn.records.count) { _, _ in WidgetSync.push(conn.records) }
+                .onReceive(conn.$records) { records in WidgetSync.push(records) }
                 .onChange(of: phase) { _, p in if p == .active { WidgetSync.push(conn.records) } }
         }
     }
