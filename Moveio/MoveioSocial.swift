@@ -1,4 +1,3 @@
-// Tikai iPHONE target
 import SwiftUI
 import Combine
 import UIKit

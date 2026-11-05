@@ -1,4 +1,3 @@
-// Add to BOTH: Moveio (iPhone app) target AND the MoveioWidget extension target
 import Foundation
 
 enum SharedStore {

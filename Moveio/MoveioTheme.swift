@@ -1,4 +1,3 @@
-// iPhone target only
 import SwiftUI
 import UIKit
 

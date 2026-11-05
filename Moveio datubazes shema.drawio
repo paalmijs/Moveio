@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="moveio-schema" name="Moveio datubāze">
+    <mxGraphModel grid="1" gridSize="10" page="0" background="#f7f9fc" connect="1" arrows="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Moveio · Datubāzes loģiskā shēma" style="text;html=1;align=left;verticalAlign=middle;fontSize=34;fontStyle=1;fontColor=#14243a;" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="1500" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="16 tabulas · PK primārā atslēga · FK ārējā atslēga · UQ unikāla atslēga · ? atļauts NULL" style="text;html=1;align=left;fontSize=16;fontColor=#435772;" vertex="1" parent="1">
+          <mxGeometry x="30" y="83" width="1560" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="group-0" value="01  Konti un piekļuve" style="rounded=1;html=1;fillColor=#20548c;strokeColor=none;fontColor=#ffffff;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="130" width="406" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts" value="Konts" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#20548c;swimlaneFillColor=#ffffff;strokeColor=#20548c;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="196" width="406" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-field-1" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;e_pasts · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;paroles_jaucējvērtība · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;loma · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;statuss · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;izveidots_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Konts-note" value="Lomas: lietotājs, administrators. Viesis ir bez sesijas." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="Konts">
+          <mxGeometry x="0" y="184" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Profils" value="Profils" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#20548c;swimlaneFillColor=#ffffff;strokeColor=#20548c;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="488" width="406" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="Profils-field-0" value="&lt;b&gt;PK FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Profils">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Profils-field-1" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;augums_cm · DECIMAL?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Profils">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Profils-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;laika_josla · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Profils">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Profils-note" value="Konts 1 → 0..1 Profils" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="Profils">
+          <mxGeometry x="0" y="109" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija" value="Sesija" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#20548c;swimlaneFillColor=#ffffff;strokeColor=#20548c;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="705" width="406" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Sesija">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Sesija">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;marķiera_jaucējvērtība · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Sesija">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;derīga_līdz_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Sesija">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;atsaukta_utc · TIMESTAMP?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Sesija">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Sesija-note" value="Konts 1 → 0..* Sesija" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="Sesija">
+          <mxGeometry x="0" y="159" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums" value="DzēšanasPieprasījums" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#20548c;swimlaneFillColor=#ffffff;strokeColor=#20548c;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="30" y="972" width="406" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-field-2" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;apstrādātāja_id?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;iesniegts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;apstrādāts_utc · TIMESTAMP?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;statuss · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DzēšanasPieprasījums-note" value="Apstrādātājs 0..1; tikai administrators." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="DzēšanasPieprasījums">
+          <mxGeometry x="0" y="184" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="group-1" value="02  Treniņi un mērījumi" style="rounded=1;html=1;fillColor=#116558;strokeColor=none;fontColor=#ffffff;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="130" width="406" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaVeids" value="TreniņaVeids" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#116558;swimlaneFillColor=#ffffff;strokeColor=#116558;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="196" width="406" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaVeids-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaVeids">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaVeids-field-1" value="&lt;b&gt;UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;nosaukums · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaVeids">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaVeids-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;aktīvs · BOOLEAN" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaVeids">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaVeids-note" value="Izmantotu kataloga vērtību deaktivizē." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="TreniņaVeids">
+          <mxGeometry x="0" y="109" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš" value="Treniņš" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#116558;swimlaneFillColor=#ffffff;strokeColor=#116558;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="413" width="406" height="239" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-2" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;veida_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;sākums_utc, beigas_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;avota_ilgums_s · INTEGER?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;piezīmes · TEXT?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-field-6" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;saglabāts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="184" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Treniņš-note" value="Avota ilgums importam; manuālajam atņem pauzes." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="Treniņš">
+          <mxGeometry x="0" y="209" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaPauze" value="TreniņaPauze" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#116558;swimlaneFillColor=#ffffff;strokeColor=#116558;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="730" width="406" height="139" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaPauze-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaPauze">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaPauze-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;treniņa_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaPauze">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaPauze-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;sākums_utc, beigas_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaPauze">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaPauze-note" value="Treniņš 1 → 0..* TreniņaPauze" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="TreniņaPauze">
+          <mxGeometry x="0" y="109" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums" value="TreniņaLabojums" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#116558;swimlaneFillColor=#ffffff;strokeColor=#116558;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="947" width="406" height="239" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;treniņa_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-2" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;veida_id?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;sākums_utc, beigas_utc · TIMESTAMP?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;piezīmes · TEXT?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;izveidots_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-field-6" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;statuss · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="184" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="TreniņaLabojums-note" value="Treniņš 1 → 0..* TreniņaLabojums" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="TreniņaLabojums">
+          <mxGeometry x="0" y="209" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="group-2" value="03  Ikdienas uzskaite" style="rounded=1;html=1;fillColor=#68447b;strokeColor=none;fontColor=#ffffff;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="130" width="406" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums" value="SensoraMērījums" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#68447b;swimlaneFillColor=#ffffff;strokeColor=#68447b;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="196" width="406" height="239" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-2" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;treniņa_id?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;tips · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;no_utc, līdz_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;vērtība · DECIMAL" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-field-6" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;saglabāts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="184" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SensoraMērījums-note" value="Pulss, soļi vai aktīvā enerģija. Saite ar treniņu tikai pulsam." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="SensoraMērījums">
+          <mxGeometry x="0" y="209" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts" value="ŪdensIeraksts" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#68447b;swimlaneFillColor=#ffffff;strokeColor=#68447b;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="513" width="406" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ŪdensIeraksts">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ŪdensIeraksts">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;mērīts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ŪdensIeraksts">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;tilpums_ml · INTEGER" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ŪdensIeraksts">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;saglabāts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ŪdensIeraksts">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ŪdensIeraksts-note" value="Konts 1 → 0..* ŪdensIeraksts" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="ŪdensIeraksts">
+          <mxGeometry x="0" y="159" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums" value="SvaraMērījums" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#68447b;swimlaneFillColor=#ffffff;strokeColor=#68447b;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="780" width="406" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SvaraMērījums">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SvaraMērījums">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;mērīts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SvaraMērījums">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;svars_kg · DECIMAL" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SvaraMērījums">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;saglabāts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="SvaraMērījums">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="SvaraMērījums-note" value="Konts 1 → 0..* SvaraMērījums" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="SvaraMērījums">
+          <mxGeometry x="0" y="159" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis" value="Mērķis" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#68447b;swimlaneFillColor=#ffffff;strokeColor=#68447b;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="1047" width="406" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;rādītājs · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;vērtība · DECIMAL" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;no_utc, līdz_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;laika_josla · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="Mērķis-note" value="Soļi, ml vai aktīvā treniņa sekundes." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="Mērķis">
+          <mxGeometry x="0" y="184" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="group-3" value="04  Imports un diagnostika" style="rounded=1;html=1;fillColor=#8b4923;strokeColor=none;fontColor=#ffffff;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="130" width="406" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots" value="ImportaAvots" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#8b4923;swimlaneFillColor=#ffffff;strokeColor=#8b4923;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="196" width="406" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;sistēma · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;ierīces_atsauce · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;datu_tips · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;izvēlēts · BOOLEAN" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaAvots-note" value="Vienam kontam katram datu tipam viens izvēlēts avots." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="ImportaAvots">
+          <mxGeometry x="0" y="184" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts" value="ImportaIeraksts" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#8b4923;swimlaneFillColor=#ffffff;strokeColor=#8b4923;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="488" width="406" height="289" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;avota_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-2" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;konta_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;avota_sistēma · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-4" value="&lt;b&gt;FK UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;treniņa_id?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-5" value="&lt;b&gt;FK UQ&lt;/b&gt;&amp;nbsp;&amp;nbsp;mērījuma_id?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-6" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;objekta_uuid · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="184" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-7" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;paslēpts, avotā_dzēsts · BOOLEAN" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="209" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-field-8" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;importēts_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="234" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaIeraksts-note" value="Ne vairāk kā viena mērķa saite; atzīme var palikt bez tās." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="ImportaIeraksts">
+          <mxGeometry x="0" y="259" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris" value="ImportaMarķieris" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#8b4923;swimlaneFillColor=#ffffff;strokeColor=#8b4923;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="855" width="406" height="214" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-field-1" value="&lt;b&gt;FK&lt;/b&gt;&amp;nbsp;&amp;nbsp;avota_id" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;atlases_fingerprint · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;anchor · BLOB?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;pēdējā_pārbaude_utc · TIMESTAMP?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-field-5" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;statuss · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="159" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="ImportaMarķieris-note" value="UQ (avota_id, atlases_fingerprint)" style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="ImportaMarķieris">
+          <mxGeometry x="0" y="184" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts" value="DiagnostikasIeraksts" style="swimlane;horizontal=1;startSize=34;html=1;rounded=0;fillColor=#8b4923;swimlaneFillColor=#ffffff;strokeColor=#8b4923;fontColor=#ffffff;fontSize=16;fontStyle=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="1147" width="406" height="189" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts-field-0" value="&lt;b&gt;PK&lt;/b&gt;&amp;nbsp;&amp;nbsp;id · UUID" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DiagnostikasIeraksts">
+          <mxGeometry x="0" y="34" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts-field-1" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;laiks_utc · TIMESTAMP" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DiagnostikasIeraksts">
+          <mxGeometry x="0" y="59" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts-field-2" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;kļūdas_kods · TEXT?" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DiagnostikasIeraksts">
+          <mxGeometry x="0" y="84" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts-field-3" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;lietotnes_versija · TEXT" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DiagnostikasIeraksts">
+          <mxGeometry x="0" y="109" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts-field-4" value="&lt;b&gt;&lt;/b&gt;&amp;nbsp;&amp;nbsp;operācija, rezultāts · ENUM" style="text;html=1;align=left;verticalAlign=middle;spacingLeft=9;fontSize=13;fontColor=#17243a;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="DiagnostikasIeraksts">
+          <mxGeometry x="0" y="134" width="406" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="DiagnostikasIeraksts-note" value="Tehniskie metadati bez veselības vērtībām." style="text;html=1;whiteSpace=wrap;align=left;spacingLeft=9;verticalAlign=middle;fontSize=10;fontColor=#425670;fillColor=#eff3f9;" vertex="1" parent="DiagnostikasIeraksts">
+          <mxGeometry x="0" y="159" width="406" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-0" edge="1" parent="1" source="Profils-field-0" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#20548c;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToOne;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-1" edge="1" parent="1" source="Sesija-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#20548c;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-2" edge="1" parent="1" source="DzēšanasPieprasījums-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#20548c;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-3" edge="1" parent="1" source="DzēšanasPieprasījums-field-2" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#20548c;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERzeroToOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-4" edge="1" parent="1" source="Treniņš-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#116558;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-5" edge="1" parent="1" source="Treniņš-field-2" target="TreniņaVeids-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#116558;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-6" edge="1" parent="1" source="TreniņaPauze-field-1" target="Treniņš-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#116558;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-7" edge="1" parent="1" source="TreniņaLabojums-field-1" target="Treniņš-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#116558;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-8" edge="1" parent="1" source="TreniņaLabojums-field-2" target="TreniņaVeids-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#116558;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERzeroToOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-9" edge="1" parent="1" source="SensoraMērījums-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#68447b;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-10" edge="1" parent="1" source="SensoraMērījums-field-2" target="Treniņš-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#68447b;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERzeroToOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-11" edge="1" parent="1" source="ŪdensIeraksts-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#68447b;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-12" edge="1" parent="1" source="SvaraMērījums-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#68447b;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-13" edge="1" parent="1" source="Mērķis-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#68447b;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-14" edge="1" parent="1" source="ImportaAvots-field-1" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#8b4923;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-15" edge="1" parent="1" source="ImportaIeraksts-field-1" target="ImportaAvots-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#8b4923;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-16" edge="1" parent="1" source="ImportaIeraksts-field-2" target="Konts-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#8b4923;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-17" edge="1" parent="1" source="ImportaIeraksts-field-4" target="Treniņš-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#8b4923;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToOne;endArrow=ERzeroToOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-18" edge="1" parent="1" source="ImportaIeraksts-field-5" target="SensoraMērījums-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#8b4923;strokeWidth=1.4;exitX=0;exitY=0.5;entryX=1;entryY=0.5;startArrow=ERzeroToOne;endArrow=ERzeroToOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel-19" edge="1" parent="1" source="ImportaMarķieris-field-1" target="ImportaAvots-field-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=26;strokeColor=#8b4923;strokeWidth=1.4;exitX=1;exitY=0.5;entryX=0;entryY=0.5;startArrow=ERzeroToMany;endArrow=ERmandOne;startSize=10;endSize=10;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes" value="&lt;b&gt;Integritātes noteikumi&lt;/b&gt;&lt;br&gt;• Importa objekts ir unikāls pēc (konta_id, avota_sistēma, objekta_uuid). Konts un sistēma sakrīt ar avota tabulu.&lt;br&gt;• Importa izmaiņas, dzēšanas atzīmes un marķieri saglabā vienā transakcijā.&lt;br&gt;• Personīgie dati paliek ierīcē. Administratoram ir pieejami kontu, kataloga un tehniskās diagnostikas dati.&lt;br&gt;• Laiku glabā UTC. Perioda beigas netiek ieskaitītas. Treniņa enerģiju dienas summā otrreiz nepieskaita." style="rounded=1;html=1;whiteSpace=wrap;align=left;spacingLeft=18;verticalAlign=middle;fontSize=16;fillColor=#e7eef8;strokeColor=#becde0;fontColor=#14243a;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1421" width="2056" height="162" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

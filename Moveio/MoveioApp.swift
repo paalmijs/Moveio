@@ -1,4 +1,3 @@
-// iPhone target only. Paste over MoveioApp.swift
 import SwiftUI
 import Charts
 
