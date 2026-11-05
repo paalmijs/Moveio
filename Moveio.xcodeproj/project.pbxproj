@@ -101,7 +101,7 @@
 		187B79BD3044BECE005103A6 /* Exceptions for "Moveio" folder in "Moveio Watch App Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				HealthManager.swift,
+				Services/HealthManager.swift,
 			);
 			target = 18AC19B730421E2D00890A42 /* Moveio Watch App Watch App */;
 		};

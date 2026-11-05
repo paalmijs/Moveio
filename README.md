@@ -92,7 +92,10 @@ For a physical device, enable **Developer Mode** and choose your team in **Signi
 
 | Path | Responsibility |
 | --- | --- |
-| [Moveio/](Moveio/) | iPhone app, workouts, routes, history, wellbeing tools, profile, and friend codes |
+| [Moveio/App/](Moveio/App/) | iPhone app entry point, navigation, and main screens |
+| [Moveio/Features/](Moveio/Features/) | Activity, workouts and routes, wellbeing, profiles, and friends |
+| [Moveio/Models/](Moveio/Models/) and [Moveio/Services/](Moveio/Services/) | Workout records, HealthKit, and Watch connectivity |
+| [Moveio/Design/](Moveio/Design/) and [Moveio/WidgetSupport/](Moveio/WidgetSupport/) | Shared styling and publishing activity data to the widget |
 | [Moveio Watch App Watch App/](Moveio%20Watch%20App%20Watch%20App/) | Watch workout sessions, live metrics, and wellbeing timers |
 | [MoveioWidget/](MoveioWidget/) | Home Screen and Lock Screen streak widget |
 

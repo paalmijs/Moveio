@@ -12,7 +12,7 @@ Capability references: https://developer.apple.com/help/account/reference/suppor
 ## Architecture and data
 
 - Native SwiftUI prototype, about 4,000 Swift source lines; no external Swift packages or backend configured.
-- iPhone entry: `Moveio/MoveioApp.swift`. Onboarding precedes five tabs: Summary, History, Tools, Friends, Profile. Locale is explicitly en_US; a few Latvian strings remain.
+- iPhone entry: `Moveio/App/MoveioApp.swift`. Onboarding precedes five tabs: Summary, History, Tools, Friends, Profile. Locale is explicitly en_US; a few Latvian strings remain.
 - `ConnectivityManager.shared` owns workout records, persists Codable JSON in UserDefaults (`records`), normalizes legacy Latvian activity names, and receives Watch records with UUID deduplication. Watch queues transferUserInfo and optionally sendMessage. Sync is Watch to phone; deletions do not propagate back.
 - `WorkoutRecord` contains UUID, activity string, date, duration, calories, average HR, distance. Separate identical copies exist in phone and Watch directories; these are not a single shared source file as README implies. ConnectivityManager and widget shared models also have duplicate copies; keep copies consistent when editing.
 - `MoveioWorkout.swift`: phone workout state machine, wall-clock timer with pause/resume, CoreLocation, MET/weight calorie estimate, HealthKit save and Watch launch. Phone HR is zero. Workout dates are recorded at completion.
