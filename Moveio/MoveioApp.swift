@@ -36,15 +36,27 @@ func style(for type: String) -> (icon: String, color: Color) {
 
 struct RootView: View {
     @StateObject private var profile = ProfileStore.shared
+    @AppStorage("appearance") private var appearance = "system"     // system, light, dark
+    @AppStorage("highContrast") private var highContrast = false
+    @State private var tab = 0
+
+    private var scheme: ColorScheme? {
+        switch appearance {
+        case "light": return .light
+        case "dark": return .dark
+        default: return nil
+        }
+    }
+
     var body: some View {
         Group {
             if profile.onboarded {
-                TabView {
-                    OverviewView().tabItem { Label("Summary", systemImage: "chart.bar.fill") }
-                    HistoryView().tabItem { Label("History", systemImage: "clock.fill") }
-                    ToolsView().tabItem { Label("Tools", systemImage: "square.grid.2x2.fill") }
-                    FriendsView().tabItem { Label("Friends", systemImage: "person.2.fill") }
-                    ProfileView().tabItem { Label("Profile", systemImage: "person.fill") }
+                TabView(selection: $tab) {
+                    OverviewView().tabItem { Label("Summary", systemImage: "chart.bar.fill") }.tag(0)
+                    HistoryView().tabItem { Label("History", systemImage: "clock.fill") }.tag(1)
+                    ToolsView().tabItem { Label("Tools", systemImage: "square.grid.2x2.fill") }.tag(2)
+                    FriendsView().tabItem { Label("Friends", systemImage: "person.2.fill") }.tag(3)
+                    ProfileView().tabItem { Label("Profile", systemImage: "person.fill") }.tag(4)
                 }
                 .tint(Theme.move)
             } else {
@@ -53,6 +65,8 @@ struct RootView: View {
         }
         .environmentObject(profile)
         .environment(\.locale, Locale(identifier: "en_US"))
+        .preferredColorScheme(scheme)
+        .id(highContrast)     // rebuild so the new contrast colors apply everywhere
     }
 }
 

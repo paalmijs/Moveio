@@ -28,7 +28,7 @@ struct AnimatedRing: View {
 
     var body: some View {
         ZStack {
-            Circle().stroke(color.opacity(0.2), lineWidth: lineWidth)
+            Circle().stroke(color.opacity(Theme.highContrast ? 0.32 : 0.2), lineWidth: lineWidth)
             Circle().trim(from: 0, to: shown)
                 .stroke(color.gradient, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))

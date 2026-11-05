@@ -163,7 +163,7 @@ struct OnboardingView: View {
     var welcome: some View {
         VStack(spacing: 20) {
             Spacer()
-            Image(systemName: "figure.run.circle.fill").font(.system(size: 90)).foregroundStyle(Theme.move)
+            MoveioLogo(size: 110)
             Text("Welcome to Moveio").font(.largeTitle.bold())
             Text("Let's set up your profile. Import your details from Apple Health or enter them yourself.")
                 .multilineTextAlignment(.center).foregroundStyle(.secondary).padding(.horizontal, 30)
@@ -221,6 +221,8 @@ struct ProfileView: View {
     @AppStorage("weeklyGoal") private var goal = 150
     @State private var confirm = false
     @State private var editing = false
+    @AppStorage("appearance") private var appearance = "system"
+    @AppStorage("highContrast") private var highContrast = false
 
     var sexText: String {
         switch p.sex {
@@ -264,6 +266,17 @@ struct ProfileView: View {
                 }
                 Section("Weekly goal") {
                     Stepper("\(goal) min per week", value: $goal, in: 30...900, step: 15)
+                }
+                Section("Appearance") {
+                    Picker("Theme", selection: $appearance) {
+                        Text("System").tag("system")
+                        Text("Light").tag("light")
+                        Text("Dark").tag("dark")
+                    }
+                    .pickerStyle(.segmented)
+                    Toggle("High contrast", isOn: $highContrast)
+                    Text("System follows your iPhone's Light or Dark setting.")
+                        .font(.footnote).foregroundStyle(.secondary)
                 }
                 Section("Tracking") {
                     NavigationLink { BodyView() } label: { Label("Body measurements", systemImage: "scalemass.fill") }
