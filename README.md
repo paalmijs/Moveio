@@ -1,8 +1,14 @@
+<p align="center"><img src="docs/assets/moveio-mark.svg" width="112" height="112" alt="Moveio logo"></p>
+
 <h1 align="center">Moveio</h1>
 
 <p align="center"><strong>Workout tracking and daily movement for iPhone and Apple Watch.</strong></p>
 
-<p align="center">Swift · SwiftUI · HealthKit · WidgetKit</p>
+<p align="center">
+  <img alt="Swift" src="https://img.shields.io/badge/Swift-F05138?style=flat-square&amp;logo=swift&amp;logoColor=white">
+  <img alt="Xcode" src="https://img.shields.io/badge/Xcode-147EFB?style=flat-square&amp;logo=xcode&amp;logoColor=white">
+  <img alt="iOS and watchOS" src="https://img.shields.io/badge/iOS%20%2B%20watchOS-24292F?style=flat-square&amp;logo=apple&amp;logoColor=white">
+</p>
 
 <p align="center">
   <a href="#features">Features</a> ·
