@@ -1,15 +1,29 @@
-# Moveio
+<h1 align="center">Moveio</h1>
 
-**Track your workouts and build a daily movement routine on iPhone and Apple Watch.**
+<p align="center"><strong>Workout tracking and daily movement for iPhone and Apple Watch.</strong></p>
 
-Moveio brings workout history, activity goals, and simple wellbeing tools into one SwiftUI app. It's an early prototype built around local storage and Apple's native frameworks, with no backend or third-party Swift packages.
+<p align="center">Swift · SwiftUI · HealthKit · WidgetKit</p>
 
-## What you can do
+<p align="center">
+  <a href="#features">Features</a> ·
+  <a href="#tech-stack">Tech stack</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#getting-started">Getting started</a> ·
+  <a href="#roadmap">Roadmap</a>
+</p>
 
-- **Record workouts.** Start a session on iPhone or launch it on Apple Watch. On iPhone, outdoor sessions are designed to record GPS routes, pace, and kilometre splits, with GPX export. On Apple Watch, the workout screen uses HealthKit for live heart rate, energy, and distance, and sends completed sessions to iPhone via WatchConnectivity.
-- **Follow your progress.** Review your history, log workouts manually, export a CSV, and track activity rings, streaks, daily quests, and achievements. The Apple Health summary can show steps, sleep, and resting heart rate when authorized.
-- **Build a routine.** Follow training plans, set reminders, log water and body measurements, or take a break with breathing exercises, guided stretching, and a Pomodoro timer. The Watch app also includes the wellbeing timers.
-- **Share a snapshot.** Exchange friend codes to compare activity. Each code captures stats at the time it was created. To refresh a friend's stats, import a new code.
+Moveio brings workout recording, activity history, and daily wellbeing tools into a native app. Start a session from iPhone, track live metrics on Apple Watch, and see your progress in one place. Workout history, routes, and preferences are stored on the device.
+
+> **Project status.** Moveio is an early prototype. Device signing and the HealthKit, GPS, and widget integrations still need validation on physical hardware.
+
+## Features
+
+| | |
+| --- | --- |
+| **Workout tracking** | Record on iPhone or hand off to Apple Watch. The Watch uses HealthKit for live heart rate, energy, and distance. iPhone outdoor workouts support route maps, pace, kilometre splits, and GPX export. |
+| **Activity and history** | Review sessions, add manual entries, export CSV, and follow activity rings, streaks, quests, and achievements. The Apple Health summary can show steps, sleep, and resting heart rate with permission. |
+| **Daily routines** | Follow training plans, set reminders, log water and body measurements, or use breathing exercises, guided stretching, and a Pomodoro timer. Wellbeing timers are also available on Watch. |
+| **Friends and widgets** | Exchange friend codes to compare snapshots of activity stats. See your streak on the Home Screen or Lock Screen when the widget's shared storage is configured. |
 
 ## Tech stack
 
@@ -28,16 +42,24 @@ Moveio brings workout history, activity goals, and simple wellbeing tools into o
 
 All dependencies come from Apple SDKs. Moveio runs without a backend, an account system, or API keys.
 
-## Architecture and data flow
+## Architecture
 
 1. **iPhone workouts.** The workout screen tracks time and uses Core Location for outdoor sessions. On completion, Moveio stores a workout record in local history, saves route points in a separate JSON file keyed by the workout ID, and attempts to save the workout to Apple Health when authorized.
 2. **Apple Watch workouts.** `HKWorkoutSession` and `HKLiveWorkoutBuilder` provide live metrics. When the workout ends, WatchConnectivity queues the record for iPhone. The iPhone checks the workout UUID before adding it to history, so repeated delivery does not create a duplicate.
 3. **Streak widget.** The iPhone app builds a summary from local activity data. With the shared App Group configured, the app writes that summary for WidgetKit to read when building its timeline.
 4. **Friend codes.** The app encodes a snapshot of activity stats into a shareable code. The recipient imports the snapshot into their local leaderboard.
 
-## Run locally
+## Getting started
 
-1. Open `Moveio.xcodeproj` in Xcode with the iOS 27 and watchOS SDKs installed. The project embeds both the Watch app and the widget in the iPhone app.
+Clone the repository and open the Xcode project.
+
+```sh
+git clone https://github.com/paalmijs/Moveio.git
+cd Moveio
+open Moveio.xcodeproj
+```
+
+1. Use Xcode with the iOS 27 and watchOS SDKs installed. The project embeds both the Watch app and the widget in the iPhone app.
 2. Select the **Moveio** scheme and an iPhone simulator, then press **⌘R**. Use an iOS 27 simulator to evaluate the widget alongside the app.
 3. To open the Watch app separately, select **Moveio Watch App Watch App** and a paired Watch simulator. Use paired physical devices to validate workout metrics and Watch-to-iPhone transfers.
 
